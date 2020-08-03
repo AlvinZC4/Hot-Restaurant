@@ -1,0 +1,23 @@
+{
+  "name": "hotrestaurant",
+  "version": "1.0.0",
+  "description": "Make a reservation or if resverations are full get on the waiting list",
+  "main": "server.js",
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "Hot-Restaurant"
+  },
+  "keywords": [
+    "hot",
+    "restaurant"
+  ],
+  "author": "AlvinZC4, purlisa, dolanpettit, Patrick Mahloy",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
