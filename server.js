@@ -20,7 +20,7 @@ class Reservation {
 }
 
 app.get("/",function(req, res) {
-    res.sendFile(path.join(__dirname, "home.html"))
+    res.sendFile(path.join(__dirname +"/assets", "home.html"))
 })
 
 app.get("/api/waitlist", function(req, res) {
@@ -32,9 +32,9 @@ app.get("/api/tables", function(req, res) {
 })
 
 app.get("/tables", function(req, res) {
-    res.sendFile(path.join(__dirname, "tables.html"))
+    res.sendFile(path.join(__dirname +"/assets", "tables.html"))
 })
 
 app.get("/reserve", function(req, res) {
-    res.sendFile(path.join(__dirname, "reserve.html"))
+    res.sendFile(path.join(__dirname +"/assets", "reserve.html"))
 })
