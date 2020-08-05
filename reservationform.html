@@ -51,13 +51,13 @@
             event.preventDefault();
             var newReservation = {
                 name: $("#name").val().trim(),
-                role: $("#phoneNumber").val().trim(),
-                age: $("#email").val().trim(),
-                forcePoints: $("#uniqueId").val().trim()
+                phone: $("#phoneNumber").val().trim(),
+                email: $("#email").val().trim(),
+                id: $("#uniqueId").val().trim()
             };
-
+            console.log(newReservation)
             // Question: What does this code do??
-            $.post("/api/reservation", newReservation)
+            $.post("/api/reservations", newReservation)
                 .then(function(data) {
                     console.log("reservationview.html", data);
                     alert("Adding reservation...");

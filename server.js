@@ -5,7 +5,9 @@ const path = require("path")
 const app = express()
 const PORT = 8080
 
-const reservations = []
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
+
 const hasTable = []
 const waitList = []
 let tablesAvailable = 5
@@ -36,10 +38,10 @@ app.get("/tables", function(req, res) {
 })
 
 app.get("/reserve", function(req, res) {
-    res.sendFile(path.join(__dirname +"/assets", "reserve.html"))
+    res.sendFile(path.join(__dirname, "reservationform.html"))
 })
 
-app.post("/api/reservations"), function(req, res) {
+app.post("/api/reservations", function(req, res) {
         const postReceived = req.body
 
         console.log(postReceived)
@@ -47,16 +49,19 @@ app.post("/api/reservations"), function(req, res) {
         let newReservation = new Reservation(postReceived.name, postReceived.phone, postReceived.email, postReceived.id)
 
         console.log(newReservation)
+        console.log("Tables available: " + tablesAvailable)
 
-        if (tablesAvailable = 0) {
+        if (tablesAvailable === 0) {
             waitList.push(newReservation)
             console.log("wait List - \n" + newReservation)
         }
         else {
             hasTable.push(newReservation)
+            tablesAvailable = tablesAvailable - 1
             console.log("At Table \n" + newReservation)
+            console.log("Now there are : " + tablesAvailable + " tables available")
         }
-    }
+    })
 
 
 //Starts the server to being listening
